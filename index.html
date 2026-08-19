@@ -1,151 +1,77 @@
-<!DOCTYPE html>
-<html lang="zh-TW">
+<!doctype html>
+<html lang="zh-Hant">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> 伍嘉豪 作品集 Portfolio of Billy Ng</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-        }
-
-        .container {
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            padding: 60px 40px;
-            max-width: 600px;
-            text-align: center;
-        }
-
-        .header {
-            margin-bottom: 40px;
-        }
-
-        h1 {
-            font-size: 2.5em;
-            color: #333;
-            margin-bottom: 10px;
-        }
-
-        .subtitle {
-            font-size: 1.2em;
-            color: #666;
-            margin-bottom: 20px;
-        }
-
-        .intro {
-            color: #555;
-            line-height: 1.8;
-            font-size: 1em;
-            margin: 30px 0;
-            text-align: left;
-        }
-
-        .intro p {
-            margin-bottom: 15px;
-        }
-
-        .cta-section {
-            margin-top: 40px;
-        }
-
-        .cta-button {
-            display: inline-block;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 15px 40px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-size: 1.1em;
-            font-weight: 600;
-            transition: transform 0.3s, box-shadow 0.3s;
-            border: none;
-            cursor: pointer;
-            margin: 10px;
-        }
-
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.4);
-        }
-
-        .mandala-link {
-            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-        }
-
-        .mandala-link:hover {
-            box-shadow: 0 10px 20px rgba(245, 87, 108, 0.4);
-        }
-
-        .footer {
-            margin-top: 50px;
-            padding-top: 20px;
-            border-top: 1px solid #eee;
-            color: #999;
-            font-size: 0.9em;
-        }
-
-        @media (max-width: 600px) {
-            .container {
-                padding: 40px 25px;
-            }
-
-            h1 {
-                font-size: 2em;
-            }
-
-            .subtitle {
-                font-size: 1em;
-            }
-
-            .intro {
-                font-size: 0.95em;
-            }
-
-            .cta-button {
-                padding: 12px 30px;
-                font-size: 1em;
-            }
-        }
-    </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>主頁</title>
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%;font-family: "Microsoft JhengHei", "Noto Sans TC", Arial, sans-serif;}
+    .container{display:flex;min-height:100vh;}
+    /* 側欄 */
+    .sidebar{
+      width:220px;
+      background: rgba(250,250,250,0.96);
+      border-right:1px solid rgba(0,0,0,0.06);
+      padding:20px 12px;
+      position:sticky; top:0; height:100vh; overflow:auto;
+    }
+    .sidebar h2{font-size:15px;color:#333;margin-bottom:10px;}
+    .nav{list-style:none;}
+    .nav li{margin:8px 0;}
+    .nav a{color:#2e6da4;text-decoration:none;font-size:16px;display:inline-block;padding:6px 8px;border-radius:4px;}
+    .nav a:hover{background:rgba(46,109,164,0.08);}
+    /* 主要區塊 */
+    main.main{
+      flex:1; padding:28px; background:#fff; position:relative; min-height:100vh;
+      display:flex; align-items:flex-start; justify-content:center;
+    }
+    /* 讓舊內容自適應的新容器 */
+    .content-wrapper{
+      width:100%;
+      max-width:980px;
+      color:#111;
+      position:relative;
+      z-index:2;
+    }
+    /* 當你原本的內容背景是黑色或有大圖時，不用改這裡，直接把原內容貼入即可 */
+    /* 手機/小螢幕：側欄改成上方捲動式 */
+    @media (max-width:720px){
+      .container{flex-direction:column;}
+      .sidebar{width:100%;height:auto;position:relative;display:flex;overflow-x:auto;white-space:nowrap;}
+      .nav li{display:inline-block;margin-right:10px;}
+      main.main{padding:16px;}
+      .content-wrapper{max-width:100%;}
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <h1>伍嘉豪 作品集</h1>
-            <h1>Portfolio of Billy Ng</h1>
-            <p class="subtitle">歡迎來到我的作品集（持續更新）</p>
-        </div>
+  <div class="container">
+    <aside class="sidebar" aria-label="主要目錄">
+      <h2>目錄</h2>
+      <ul class="nav">
+        <li><a href="home.html">主頁</a></li>
+        <li><a href="research-background.html">新景律——基督教信仰唐詩</a></li>
+        <li><a href="methods.html">曼陀羅生成器</a></li>
+        <li><a href="tezuka.html"> </a></li>
+        <li><a href="theory.html"> </a></li>
+        <li><a href="interviews.html"> </a></li>
+        <li><a href="discussion.html"> </a></li>
+        <li><a href="creative-synthesis.html"> </a></li>
+        <li><a href="limitations.html"> </a></li>
+        <li><a href="references.html"> </a></li>
+      </ul>
+    </aside>
 
-        <div class="intro">
-            <!-- 在下方填入你的自我介紹 -->
-            <p>你好！歡迎！</p>
-            <p>詩人/心靈樹師</p>
-        </div>
+    <main class="main" role="main">
+      <div class="content-wrapper" id="main-content">
+        <!-- ======== 把你原本 home.html 的「整個 body 內部」原樣貼到此處（包含 <div>、<h1>、<img>、style 屬性或 script） ========
+             也就是：開啟你原本的 home.html，複製 <body> 與 </body> 之間的全部內容，然後貼在這裡，替換這個註解區塊。
+             這樣做可以確保你原本的 HTML 結構與內容（ID、class、內嵌樣式、圖片引用等）完全保留。
+        ========================================================================================================== -->
 
-        <div class="cta-section">
-            <p style="margin-bottom: 20px; color: #666;">探索我的作品：</p>
-            <a href="https://yi-resonance.github.io/mandala_chi/" class="cta-button mandala-link">
-                ✨ 「我的曼陀羅 (Mandala)」曼陀羅生成器
-            </a>
-        </div>
-
-        <div class="footer">
-            <p>© 2026 YI-Resonance. All rights reserved.</p>
-        </div>
-    </div>
+      </div>
+    </main>
+  </div>
 </body>
 </html>
