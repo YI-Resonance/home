@@ -21,27 +21,17 @@
     .nav li{margin:8px 0;}
     .nav a{color:#2e6da4;text-decoration:none;font-size:16px;display:inline-block;padding:6px 8px;border-radius:4px;}
     .nav a:hover{background:rgba(46,109,164,0.08);}
-    /* 主要區塊 */
-    main.main{
-      flex:1; padding:28px; background:#fff; position:relative; min-height:100vh;
-      display:flex; align-items:flex-start; justify-content:center;
-    }
-    /* 讓舊內容自適應的新容器 */
-    .content-wrapper{
-      width:100%;
-      max-width:980px;
-      color:#111;
-      position:relative;
-      z-index:2;
-    }
-    /* 當你原本的內容背景是黑色或有大圖時，不用改這裡，直接把原內容貼入即可 */
-    /* 手機/小螢幕：側欄改成上方捲動式 */
+    /* 右側為 iframe 容器 */
+    main.main{flex:1; padding:0; background:#fff; position:relative; min-height:100vh; display:flex; flex-direction:column;}
+    .iframe-wrap{flex:1; border:0; height:100vh;}
+    iframe#content-frame{width:100%; height:100%; border:0; display:block;}
+    /* 小螢幕：側欄移上方水平捲動 */
     @media (max-width:720px){
       .container{flex-direction:column;}
       .sidebar{width:100%;height:auto;position:relative;display:flex;overflow-x:auto;white-space:nowrap;}
       .nav li{display:inline-block;margin-right:10px;}
-      main.main{padding:16px;}
-      .content-wrapper{max-width:100%;}
+      main.main{height:auto;}
+      .iframe-wrap{height:80vh;}
     }
   </style>
 </head>
@@ -50,26 +40,24 @@
     <aside class="sidebar" aria-label="主要目錄">
       <h2>目錄</h2>
       <ul class="nav">
-        <li><a href="home.html">主頁</a></li>
-        <li><a href="research-background.html">新景律——基督教信仰唐詩</a></li>
-        <li><a href="methods.html">曼陀羅生成器</a></li>
-        <li><a href="tezuka.html"> </a></li>
-        <li><a href="theory.html"> </a></li>
-        <li><a href="interviews.html"> </a></li>
-        <li><a href="discussion.html"> </a></li>
-        <li><a href="creative-synthesis.html"> </a></li>
-        <li><a href="limitations.html"> </a></li>
-        <li><a href="references.html"> </a></li>
+        <!-- 這些連結 target="content-frame" 會在右側 iframe 中開啟對應頁面 -->
+        <li><a href="index_2.html" target="content-frame">主頁</a></li>
+        <li><a href="research-background.html" target="content-frame">研究緣起</a></li>
+        <li><a href="methods.html" target="content-frame">研究方法</a></li>
+        <li><a href="tezuka.html" target="content-frame">手塚治虫</a></li>
+        <li><a href="theory.html" target="content-frame">理論根據</a></li>
+        <li><a href="interviews.html" target="content-frame">訪談結果</a></li>
+        <li><a href="discussion.html" target="content-frame">討論及建議</a></li>
+        <li><a href="creative-synthesis.html" target="content-frame">創意合成</a></li>
+        <li><a href="limitations.html" target="content-frame">侷限：限制與前瞻</a></li>
+        <li><a href="references.html" target="content-frame">參考文獻</a></li>
       </ul>
     </aside>
 
     <main class="main" role="main">
-      <div class="content-wrapper" id="main-content">
-        <!-- ======== 把你原本 home.html 的「整個 body 內部」原樣貼到此處（包含 <div>、<h1>、<img>、style 屬性或 script） ========
-             也就是：開啟你原本的 home.html，複製 <body> 與 </body> 之間的全部內容，然後貼在這裡，替換這個註解區塊。
-             這樣做可以確保你原本的 HTML 結構與內容（ID、class、內嵌樣式、圖片引用等）完全保留。
-        ========================================================================================================== -->
-
+      <div class="iframe-wrap">
+        <!-- 右側會載入你原本的頁面（index_2.html），完全保留原始內容 -->
+        <iframe id="content-frame" name="content-frame" src="index_2.html" title="主要內容"></iframe>
       </div>
     </main>
   </div>
